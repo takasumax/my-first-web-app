@@ -1,251 +1,55 @@
-<!doctype html>
-<!-- <html lang="en"> -->
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <title>My GitHub Pages Site</title> -->
-    <title>Cafe Dummy - 落ち着いたひとときを</title>
-    <style>
-      /* 基本設定 */
-      body {
-        margin: 0;
-        padding: 0;
-        font-family:
-          "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-          Meiryo, sans-serif;
-        color: #3e3a39; /* ダークブラウン寄りのチャコール */
-        background-color: #fdfaf5; /* 柔らかなオフホワイト */
-        line-height: 1.8;
-      }
+<!DOCTYPE html>
+<html lang="en">
 
-      /* ヘッダー */
-      header {
-        padding: 40px 20px;
-        text-align: center;
-        background-color: #fff;
-        border-bottom: 1px solid #e0d8cc;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
 
-      .logo {
-        font-size: 24px;
-        font-weight: bold;
-        letter-spacing: 0.2em;
-        color: #8c7662; /* ウッドブラウン */
-      }
+<body>
+  <!-- ダッシュボードコンテナ -->
+  <div class="dashboard-container">
 
-      /* メインビジュアル */
-      .hero {
-        height: 400px;
-        background-color: #d1d5db; /* 画像の代わりのプレースホルダーカラー */
-        background-image:
-          linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-          url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070");
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-      }
+    <!-- サイドバー -->
+    <aside>
+      <header>
+        <a href="#" data-tab="home">
+          <span class="ri-home-line"></span>
+          Home
+        </a>
+      </header>
+    </aside>
 
-      .hero-text {
-        text-align: center;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(5px);
-        padding: 30px 60px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-      }
+    <main>
+      <!-- ホームセクション -->
+      <section id="home">
+        <header>
+          <!-- プロフィールアイコン -->
+          <div class="profile-icon">
+            <span class="ri-user-smile-line"></span>
+          </div>
 
-      /* セクション共通 */
-      section {
-        max-width: 900px;
-        margin: 80px auto;
-        padding: 0 20px;
-      }
+          <!-- タイトルとサブタイトル -->
+          <h1>Welcome to Your Personal Dashboard</h1>
+          <p class="subtitle">Make your daily life more convenient and enjoyabl</p>
+        </header>
 
-      h2 {
-        text-align: center;
-        font-size: 22px;
-        margin-bottom: 40px;
-        position: relative;
-        padding-bottom: 10px;
-      }
+        <!-- メッセージエリア -->
+        <div class="message-container">
+          <p>This dashboard is a tool to enrich your daily life. You can easily use essential features such as diary
+            entries, memo management, and checking weather information.</p>
+          <p>Small daily records become irreplaceable memories, and efficient task management leads to fulfilling days.
+            Please use this as a partner that supports your everyday life.</p>
+        </div>
+      </section>
 
-      h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40px;
-        height: 1px;
-        background-color: #8c7662;
-      }
+    </main>
 
-      /* コンセプト */
-      .about-content {
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
-      }
+  </div>
 
-      /* メニュー */
-      .menu-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-      }
+</body>
 
-      .menu-table tr {
-        border-bottom: 1px dotted #ccc;
-      }
-
-      .menu-table td {
-        padding: 15px 10px;
-      }
-
-      /* 追加・修正するスタイル */
-      .menu-table caption {
-        text-align: left;
-        font-size: 14px;
-        background-color: #eff2f0; /* セージグリーン */
-        padding: 5px 15px;
-        margin-top: 30px;
-        display: inline-block;
-        font-weight: bold;
-        color: #3e3a39;
-        border-radius: 2px;
-        caption-side: top; /* 表の上に配置 */
-      }
-
-      .menu-name {
-        font-weight: bold;
-      }
-
-      .menu-price {
-        text-align: right;
-        color: #8c7662;
-      }
-
-      .category-title {
-        background-color: #eff2f0; /* セージグリーン系の淡い色 */
-        padding: 5px 15px;
-        margin-top: 30px;
-        display: inline-block;
-        font-size: 14px;
-        border-radius: 2px;
-      }
-
-      /* フッター */
-      footer {
-        background-color: #3e3a39;
-        color: #fff;
-        padding: 60px 20px;
-        text-align: center;
-        font-size: 13px;
-      }
-
-      @media (max-width: 600px) {
-        .hero {
-          height: 300px;
-        }
-        .hero-text {
-          padding: 20px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- <h1>Welcome to My GitHub Pages Site</h1>
-    <p>This is my first GitHub Pages deployment</p> -->
-
-    <header>
-      <div class="logo">CAFE DUMMY</div>
-    </header>
-
-    <div class="hero">
-      <div class="hero-text">
-        <h1>穏やかな時間が流れる、<br />街の止まり木。</h1>
-      </div>
-    </div>
-
-    <section id="about">
-      <h2>CONCEPT</h2>
-      <div class="about-content">
-        <p>
-          ここにダミーテキストが入ります。ここにダミーテキストが入ります。ここにダミーテキストが入ります。
-          日々の喧騒を忘れ、香ばしい珈琲の香りに包まれながら、心ゆくまでリラックスしていただける空間を目指しています。
-        </p>
-        <p>
-          テキストのサンプルです。心地よい音楽と、厳選された豆を使用した一杯。
-          窓から差し込む柔らかな光とともに、特別なひとときをお過ごしください。
-        </p>
-      </div>
-    </section>
-
-    <section id="menu">
-      <h2>MENU</h2>
-
-      <table class="menu-table">
-        <caption>
-          COFFEE & TEA
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col" style="display: none">商品名</th>
-            <th scope="col" style="display: none">価格</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="menu-name">ダミーコーヒー（Hot/Ice）</td>
-            <td class="menu-price">¥550</td>
-          </tr>
-          <tr>
-            <td class="menu-name">サンプルカフェラテ</td>
-            <td class="menu-price">¥620</td>
-          </tr>
-          <tr>
-            <td class="menu-name">季節のフレーバーティー</td>
-            <td class="menu-price">¥600</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table class="menu-table">
-        <caption>
-          FOOD & DESSERT
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col" style="display: none">商品名</th>
-            <th scope="col" style="display: none">価格</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="menu-name">自家製ダミースコーン</td>
-            <td class="menu-price">¥450</td>
-          </tr>
-          <tr>
-            <td class="menu-name">サンプル・ガトーショコラ</td>
-            <td class="menu-price">¥680</td>
-          </tr>
-          <tr>
-            <td class="menu-name">特製厚切りトーストセット</td>
-            <td class="menu-price">¥850</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <footer>
-      <p>&copy; 2024 CAFE DUMMY. All rights reserved.</p>
-      <p>
-        123-4567 ダミー県見本市サンプル町 0-0-0<br />
-        Open: 11:00 - 19:00 / Closed: Tuesday
-      </p>
-    </footer>
-  </body>
 </html>
