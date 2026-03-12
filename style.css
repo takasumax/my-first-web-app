@@ -1,148 +1,155 @@
-/* ブラウザで設定されているスタイルのリセット・共通設定 */
-/* 消さないでください */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li,
-form,
-input,
-textarea,
-select,
-button {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+/* 基本設定 */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family:
+        "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+        Meiryo, sans-serif;
+      color: #3e3a39;
+      /* ダークブラウン寄りのチャコール */
+      background-color: #fdfaf5;
+      /* 柔らかなオフホワイト */
+      line-height: 1.8;
+    }
 
-ul {
-  list-style: none;
-}
-/* スタイルのリセット終了 */
+    /* ヘッダー */
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #fff;
+      border-bottom: 1px solid #e0d8cc;
+    }
 
-/* サイドバーとメインコンテンツを包むための要素のスタイルを書いてください */
-/* ブラウザ全体の高さを確保する */
-html, body {
-  height: 100%;
-  margin: 0;
-}
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 0.2em;
+      color: #8c7662;
+      /* ウッドブラウン */
+    }
 
+    /* メインビジュアル */
+    .hero {
+      height: 400px;
+      background-color: #d1d5db;
+      /* 画像の代わりのプレースホルダーカラー */
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
 
-/* サイドバーに関連するスタイルを書いてください */
-/* コンテナを画面いっぱいに広げ、横並びにする */
-.dashboard-container {
-  display: flex;
-  height: 100vh;
-}
+    .hero-text {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      padding: 30px 60px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
+    /* セクション共通 */
+    section {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
 
-/* サイドバー全体のスタイル */
-aside{
-  /* 幅を 256px に設定 */
-  width: 256px;
-  /* 横幅の縮小を防止（0に設定） */
-  flex-shrink: 0;
-  /* 背景色を #f5f5f5 に設定 */
-  background-color: #f5f5f5;
-   /* 右側に 1px のボーダー（#e0e0e0）を設定 */
-  border-right: 1px solid #e0e0e0;
-  /* Flexboxを有効化し、子要素を縦方向に配置 */
-  display: flex;
-  flex-direction: column;
-   /* 高さを 100% に設定 */
-  height: 100%;
-}
-/* サイドバー内のヘッダーのスタイル */
-header{
-  /* 余白（padding）を 20px に設定 */
-  padding: 20px;
-  /* ヘッダーの下にボーダーを 1px の太さで、色を #e0e0e0 に設定 */
-  border-bottom: 1px solid #e0e0e0;
-}
-/* ホームリンクのスタイル */
-aside header a[data-tab="home"]{
-  /* フォントサイズを 1.25rem に設定 */
-  font-size: 1.25rem;
-  /* フォントの太さを 600 に設定 */
-  font-weight: 600;
-  /* 文字色を #4f7cac に設定 */
-  color: #4f7cac;
-  /* Flexboxで配置し、縦方向を中央揃えに設定 */
-  display: flex;
-  align-items: center;
-  /* アイコンとテキストの間に 8px の間隔を設定 */
-  gap: 8px;
-  /* テキストの下線（装飾）を削除 */
-  text-decoration: none;
-}
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 40px;
+      position: relative;
+      padding-bottom: 10px;
+    }
 
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 1px;
+      background-color: #8c7662;
+    }
 
-/* メインコンテンツに関連するスタイルを書いてください */
-/* 1. メインコンテンツ */
-main {
-  /* サイドバー以外の残り幅をすべて占有させる */
-  flex: 1;
-}
-/* 2. ヘッダー */
-#home header {
-  background-color: white;
-  padding: 32px;
-  border-bottom: 1px solid #e0e0e0;
-  text-align: center; /* テキストを中央揃え */
-}
-/* 3. プロフィールアイコン */
-.profile-icon {
-  width: 96px;
-  height: 96px;
-  background-color: #4f7cac;
-  border-radius: 50%; /* 円形にする */
-  
-  /* アイコン（span）を真ん中に配置 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  /* 上下左右の配置：左右autoで中央寄せ */
-  margin: 0 auto 24px auto;
-}
+    /* コンセプト */
+    .about-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-.profile-icon span {
-  font-size: 2.5rem;
-  color: white;
-}
-/* 4. タイトル */
-#home h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #2f2f2f;
-  margin-bottom: 8px;
-}
-/* 5. サブタイトル */
-.subtitle {
-  font-size: 1.125rem;
-  color: #757575;
-  margin-bottom: 24px;
-}
-/* 6. メッセージ */
-.message-container {
-  max-width: 672px;
-  margin: 0 auto; /* 左右中央寄せ */
-  padding: 32px;
-  color: #757575;
-}
+    /* メニュー */
+    .menu-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
 
-.message-container p {
-  margin-bottom: 16px;
-}
+    .menu-table tr {
+      border-bottom: 1px dotted #ccc;
+    }
 
-/* 最後の段落は下の余白を不要にする場合（オプション） */
-.message-container p:last-child {
-  margin-bottom: 0;
-}
+    .menu-table td {
+      padding: 15px 10px;
+    }
+
+    /* 追加・修正するスタイル */
+    .menu-table caption {
+      text-align: left;
+      font-size: 14px;
+      background-color: #eff2f0;
+      /* セージグリーン */
+      padding: 5px 15px;
+      margin-top: 30px;
+      display: inline-block;
+      font-weight: bold;
+      color: #3e3a39;
+      border-radius: 2px;
+      caption-side: top;
+      /* 表の上に配置 */
+    }
+
+    .menu-name {
+      font-weight: bold;
+    }
+
+    .menu-price {
+      text-align: right;
+      color: #8c7662;
+    }
+
+    .category-title {
+      background-color: #eff2f0;
+      /* セージグリーン系の淡い色 */
+      padding: 5px 15px;
+      margin-top: 30px;
+      display: inline-block;
+      font-size: 14px;
+      border-radius: 2px;
+    }
+
+    /* フッター */
+    footer {
+      background-color: #3e3a39;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        height: 300px;
+      }
+
+      .hero-text {
+        padding: 20px;
+      }
+    }
