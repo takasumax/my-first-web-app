@@ -2,18 +2,23 @@
 <html lang="ja">
 
 <head>
+  <!-- 文字化けを防ぐ設定 -->
   <meta charset="UTF-8">
+  <!-- スマホ表示を綺麗にする設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cafe Placeholder | 落ち着いたひとときを</title>
 
+  <!-- デザイン（CSS）を読み込む -->
   <link rel="stylesheet" href="style.css">
 
+  <!-- Googleからフォントを読み込む -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP&display=swap"
     rel="stylesheet">
 </head>
 
 <body>
 
+  <!-- ここからヘッダー（ロゴとメニュー） -->
   <header>
     <div class="container">
       <h1>Cafe Placeholder</h1>
@@ -28,6 +33,7 @@
   </header>
 
   <main>
+    <!-- メインの看板画像エリア -->
     <section class="hero">
       <div class="hero-content">
         <h2>タイトルテキストが入ります</h2>
@@ -35,17 +41,21 @@
       </div>
     </section>
 
-    <section id="about" class="container">
+    <!-- お店についての紹介セクション -->
+    <!-- フェードイン対象のクラス「js-fade」を追加 -->
+    <section id="about" class="container js-fade">
       <div class="section-title">
         <span>About</span>
         <h2>落ち着いた空間で、日常を忘れるひとときを。</h2>
       </div>
       <div class="about-text">
-        <p>テキストが入ります。ダミーテキストです。お店のこだわりをここに記載します。</p>
+        <p>ダミーテキストです。お店のコンセプトをここに書きます。</p>
       </div>
     </section>
 
-    <section id="menu" class="bg-light">
+    <!-- メニュー表セクション -->
+    <!-- クラス「js-fade」を追加 -->
+    <section id="menu" class="bg-light js-fade">
       <div class="container">
         <div class="section-title">
           <span>Menu</span>
@@ -53,7 +63,7 @@
         </div>
 
         <div class="menu-grid">
-
+          <!-- 飲み物カテゴリー。idを使って表の名前を定義しています -->
           <div class="menu-category">
             <h3 id="label-coffee">Coffee</h3>
             <table aria-labelledby="label-coffee">
@@ -72,6 +82,7 @@
             </table>
           </div>
 
+          <!-- 食べ物カテゴリー -->
           <div class="menu-category">
             <h3 id="label-sweets">Sweets & Food</h3>
             <table aria-labelledby="label-sweets">
@@ -93,15 +104,16 @@
       </div>
     </section>
 
-    <section id="info" class="container">
+    <!-- 店舗情報とアクセス -->
+    <!-- クラス「js-fade」を追加 -->
+    <section id="info" class="container js-fade">
       <div class="section-title">
         <span>Access</span>
         <h2>Information</h2>
       </div>
       <div class="info-content">
         <div class="info-list">
-          <p><strong>営業時間：</strong> 11:00 〜 19:00 (L.O. 18:30)</p>
-          <p><strong>定休日：</strong> 毎週水曜日</p>
+          <p><strong>営業時間：</strong> 11:00 〜 19:00</p>
           <p><strong>住所：</strong> 〇〇県〇〇市サンプル町 1-2-3</p>
         </div>
         <div class="map-dummy">Map Area</div>
@@ -109,9 +121,13 @@
     </section>
   </main>
 
+  <!-- コピーライトを表示するフッター -->
   <footer>
-    <p>&copy; 2024 Cafe Placeholder. All rights reserved.</p>
+    <p>&copy; 2026 Cafe Placeholder. All rights reserved.</p>
   </footer>
+
+  <!-- 動き（JavaScript）を読み込む。HTMLの最後（</body>の直前）に書くのが基本 -->
+  <script src="script.js" defer></script>
 
 </body>
 
