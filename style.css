@@ -66,18 +66,65 @@ nav a {
     font-size: 0.9rem;
 }
 
-/* メインビジュアル：全幅の背景画像と中央の文字 */
+/* ==========================================================================
+   スライドショー（Heroエリア）の設定
+   ========================================================================== */
+
 .hero {
-    height: 60vh; /* 画面の高さの60%に設定 */
-    /* 背景画像に暗めのグラデーションを重ねて、上に乗る白文字を読みやすくする */
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1500') center/cover;
+    position: relative;
+    height: 70vh; /* 少し高さを出しました */
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #000; /* 切替時の隙間対策 */
+}
+
+/* スライドを包むエリア */
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* テキストより後ろにする */
+}
+
+/* 各スライドの共通設定 */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    opacity: 0; /* 最初は隠す */
+    transition: opacity 2s ease-in-out; /* 2秒かけてふわっと切り替える */
+}
+
+/* 画像の上に暗いフィルターを重ねて文字を読みやすくする */
+.slide::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* アクティブな（今表示されている）スライド */
+.slide.is-active {
+    opacity: 1;
+}
+
+/* 前面に表示するテキスト */
+.hero-content {
+    position: relative;
+    z-index: 2; /* スライドより前に出す */
     color: #fff;
     text-align: center;
 }
+/* ========================================================================== */
 
 /* セクション共通の見出しデザイン */
 .section-title {
@@ -145,13 +192,46 @@ td:last-child {
     color: #999;
 }
 
-/* フッター */
+/* ==========================================================================
+   フッターとSNSアイコンのスタイル
+   ========================================================================== */
+
 footer {
     background: var(--primary-color);
     color: #fff;
     text-align: center;
-    padding: 40px 0;
-    font-size: 0.8rem;
+    padding: 60px 0 40px; /* 上の余白を少し広めに */
+}
+
+.footer-sns {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* アイコン同士の間隔 */
+}
+
+.footer-sns a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    opacity: 0.7; /* 最初は少し薄くしておく */
+    transition: opacity 0.3s, transform 0.3s; /* 変化を滑らかに */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 枠線で囲んで上品に */
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* マウスを置いた時の動き（ホバーエフェクト） */
+.footer-sns a:hover {
+    opacity: 1;           /* はっきり見えるように */
+    transform: translateY(-3px); /* 少し上に浮き上がらせる */
+    border-color: #fff;   /* 枠線を白く強調 */
+}
+
+.copyright {
+    font-size: 0.75rem;
+    opacity: 0.5;
 }
 
 /* ==========================================================================
@@ -211,4 +291,30 @@ footer {
     .news-date {
         margin-bottom: 5px;
     }
+}
+
+/* ==========================================================================
+   重要なお知らせ（is-important）の装飾
+   ========================================================================== */
+
+/* 項目全体の設定 */
+.news-list li.is-important {
+    background-color: #fff5f5; /* ほんのり薄い赤の背景 */
+}
+
+/* 重要な時の日付の色 */
+.news-list li.is-important .news-date {
+    color: #c0392b; /* 深みのある落ち着いた赤 */
+}
+
+/* 重要な時のテキストの色と太さ */
+.news-list li.is-important .news-content {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+/* 「重要」であることを示すアイコン（擬似要素）を先頭に付ける演出 */
+.news-list li.is-important .news-content::before {
+    content: "⚠️"; /* アイコンを自動挿入 */
+    margin-right: 5px;
 }

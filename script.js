@@ -25,3 +25,21 @@ const handleFade = () => {
 // 3. 画面の読み込み完了時と、スクロール時に handleFade 関数を実行
 window.addEventListener('load', handleFade); // ページが開いた瞬間の表示
 window.addEventListener('scroll', handleFade); // スクロールするたびの表示
+
+/* === スライドショーの制御 === */
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+const nextSlide = () => {
+  // 現在のスライドからクラスを外す
+  slides[currentIndex].classList.remove('is-active');
+  
+  // 次のインデックスを計算（最後まできたら0に戻る）
+  currentIndex = (currentIndex + 1) % slides.length;
+  
+  // 次のスライドにクラスを付ける
+  slides[currentIndex].classList.add('is-active');
+};
+
+// 5000ミリ秒（5秒）おきに実行
+setInterval(nextSlide, 5000);

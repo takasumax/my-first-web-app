@@ -35,6 +35,23 @@
   <main>
     <!-- メインの看板画像エリア -->
     <section class="hero">
+      <!-- 背景画像の重なりを作るためのコンテナ -->
+      <div class="hero-slideshow">
+        <!-- 1枚目の画像（最初は表示） -->
+        <div class="slide is-active"
+          style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1500')">
+        </div>
+        <!-- 2枚目の画像 -->
+        <div class="slide"
+          style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=1500')">
+        </div>
+        <!-- 3枚目の画像 -->
+        <div class="slide"
+          style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=1500')">
+        </div>
+      </div>
+
+      <!-- 画像の上に重なるテキスト内容 -->
       <div class="hero-content">
         <h2>タイトルテキストが入ります</h2>
         <p>サブタイトルテキストがここに入ります。</p>
@@ -50,14 +67,17 @@
 
       <ul class="news-list">
         <!-- 各お知らせ項目。日付と内容をセットにします ] -->
+        <!-- 通常のお知らせ -->
         <li>
           <span class="news-date">2026.03.10</span>
           <span class="news-content">春限定「さくらラテ」の販売を開始しました。</span>
         </li>
-        <li>
+        <!-- 重要なお知らせ（is-important クラスを付与） -->
+        <li class="is-important">
           <span class="news-date">2026.03.01</span>
           <span class="news-content">【重要】3月15日は臨時休業とさせていただきます。</span>
         </li>
+
         <li>
           <span class="news-date">2026.02.14</span>
           <span class="news-content">バレンタイン限定スイーツが登場！</span>
@@ -147,7 +167,23 @@
 
   <!-- コピーライトを表示するフッター -->
   <footer>
-    <p>&copy; 2026 Cafe Placeholder. All rights reserved.</p>
+    <div class="container">
+      <!-- SNSリンクエリア -->
+      <div class="footer-sns">
+        <!-- アクセシビリティのため、aria-labelでリンク先を明示します -->
+        <a href="https://instagram.com/youraccount" target="_blank" rel="noopener" aria-label="Instagram">
+          Instagram
+        </a>
+        <a href="https://twitter.com/youraccount" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          X
+        </a>
+        <a href="https://facebook.com/youraccount" target="_blank" rel="noopener" aria-label="Facebook">
+          Facebook
+        </a>
+      </div>
+
+      <p class="copyright">&copy; 2026 Cafe Placeholder. All rights reserved.</p>
+    </div>
   </footer>
 
   <!-- 動き（JavaScript）を読み込む。HTMLの最後（</body>の直前）に書くのが基本 -->
