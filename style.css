@@ -171,6 +171,43 @@ td:last-child {
     font-weight: bold;
 }
 
+/* ==========================================================================
+   メニュー写真のホバー演出
+   ========================================================================== */
+
+.menu-item {
+    position: relative; /* 画像を配置する基準点にする */
+    cursor: pointer;
+}
+
+/* 隠しておく画像の設定 */
+.menu-photo {
+    position: absolute;
+    top: -120px;       /* 項目より少し上に表示 */
+    left: 50%;
+    transform: translateX(-50%) scale(0.8); /* 中央寄せ ＋ 少し小さくしておく */
+    width: 150px;      /* 邪魔にならないコンパクトなサイズ */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%; /* 丸い形にして柔らかい印象に */
+    border: 3px solid #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    
+    opacity: 0;        /* 最初は見えない */
+    visibility: hidden;
+    transition: all 0.4s ease; /* 変化を滑らかにする */
+    z-index: 10;
+    pointer-events: none; /* 画像がマウス操作の邪魔をしないようにする */
+}
+
+/* マウスを乗せた時の動き */
+.menu-item:hover .menu-photo {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px) scale(1); /* ふわっと浮き上がって拡大 */
+}
+/* ========================================================================== */
+
 /* インフォメーション：情報と地図の横並び */
 .info-content {
     display: flex;
@@ -190,6 +227,120 @@ td:last-child {
     align-items: center;
     justify-content: center;
     color: #999;
+}
+
+/* ==========================================================================
+   営業状態バッジ（Business Status）のスタイル
+   ========================================================================== */
+
+.status-badge {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+/* 営業中のスタイル（明るいグリーン系） */
+.status-badge.open {
+    background-color: #e6f4ea;
+    color: #1e8e3e;
+    border: 1px solid #1e8e3e;
+}
+
+/* 準備中のスタイル（落ち着いたグレー系） */
+.status-badge.closed {
+    background-color: #f1f3f4;
+    color: #5f6368;
+    border: 1px solid #5f6368;
+}
+
+/* 営業中には、小さく点滅するドットを付けて「動いている感」を出します */
+.status-badge.open::before {
+    content: "●";
+    margin-right: 5px;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* ==========================================================================
+   お問い合わせフォーム（Contact）のスタイル
+   ========================================================================== */
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* 入力中の枠線の色を変える */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(75, 56, 50, 0.1);
+}
+
+.form-submit {
+    margin-top: 30px;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #5d463e; /* 少し明るい茶色に */
+    transform: translateY(-2px);
+}
+
+/* 送信完了メッセージのスタイル */
+.thanks-message {
+    text-align: center;
+    padding: 20px;
+    color: var(--primary-color);
+    font-weight: bold;
+    line-height: 1.8;
 }
 
 /* ==========================================================================
