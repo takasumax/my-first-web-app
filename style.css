@@ -170,3 +170,45 @@ footer {
     opacity: 1;                /* 完全に不透明 */
     transform: translateY(0);   /* 元の位置に戻す */
 }
+
+/* ==========================================================================
+   お知らせセクション（News）のスタイル
+   ========================================================================== */
+
+.news-list {
+    list-style: none; /* 点を消す */
+    max-width: 800px;
+    margin: 0 auto;   /* 中央寄せ */
+    padding: 0;
+}
+
+.news-list li {
+    display: flex;      /* 日付と内容を横並びにする */
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee; /* 下線で区切る */
+    font-size: 0.95rem;
+}
+
+.news-list li:last-child {
+    border-bottom: none; /* 最後の線の削除 */
+}
+
+.news-date {
+    width: 120px;       /* 日付の幅を固定して揃える */
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.news-content {
+    flex: 1;            /* 残りの幅をすべて使う */
+}
+
+/* スマホ用の調整：日付と内容を縦並びにする */
+@media (max-width: 480px) {
+    .news-list li {
+        flex-direction: column;
+    }
+    .news-date {
+        margin-bottom: 5px;
+    }
+}
