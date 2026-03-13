@@ -1,155 +1,155 @@
-/* 基本設定 */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family:
-        "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-        Meiryo, sans-serif;
-      color: #3e3a39;
-      /* ダークブラウン寄りのチャコール */
-      background-color: #fdfaf5;
-      /* 柔らかなオフホワイト */
-      line-height: 1.8;
-    }
+/* ==========================================================================
+   基本設定と変数定義
+   ========================================================================== */
+:root {
+    /* 色を一括管理するための変数（修正が楽になります） */
+    --primary-color: #4B3832; /* メインカラー：深いブラウン（落ち着き） */
+    --accent-color: #828A70;  /* アクセントカラー：スモーキーグリーン（癒やし） */
+    --bg-color: #F5F5F0;      /* 背景用：少し黄みのある白（紙のような質感） */
+    --text-color: #333;       /* 本文：真っ黒を避けて視認性を向上 */
+}
 
-    /* ヘッダー */
-    header {
-      padding: 40px 20px;
-      text-align: center;
-      background-color: #fff;
-      border-bottom: 1px solid #e0d8cc;
-    }
+/* ブラウザ固有の余白をリセットし、サイズ計算をシンプルにする */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 0.2em;
-      color: #8c7662;
-      /* ウッドブラウン */
-    }
+/* サイト全体の文字設定 */
+body {
+    font-family: 'Noto Sans JP', sans-serif; /* 基本はゴシック体 */
+    line-height: 1.8; /* 行間を広めにとって読みやすく */
+    color: var(--text-color);
+}
 
-    /* メインビジュアル */
-    .hero {
-      height: 400px;
-      background-color: #d1d5db;
-      /* 画像の代わりのプレースホルダーカラー */
-      background-image:
-        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-    }
+/* 見出しには明朝体（Serif）を適用して高級感を出す */
+h1, h2, h3 {
+    font-family: 'Noto Serif JP', serif;
+}
 
-    .hero-text {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(5px);
-      padding: 30px 60px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
+/* コンテンツを中央寄せにするための共通クラス */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
 
-    /* セクション共通 */
-    section {
-      max-width: 900px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
+/* ==========================================================================
+   各パーツのスタイリング
+   ========================================================================== */
 
-    h2 {
-      text-align: center;
-      font-size: 22px;
-      margin-bottom: 40px;
-      position: relative;
-      padding-bottom: 10px;
-    }
+/* ヘッダー：ロゴとメニュー */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
 
-    h2::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 1px;
-      background-color: #8c7662;
-    }
+header h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    letter-spacing: 0.1em; /* 文字の間隔を少し広げて上品に */
+}
 
-    /* コンセプト */
-    .about-content {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none; /* リストの「・」を消す */
+    margin-top: 10px;
+}
 
-    /* メニュー */
-    .menu-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
+nav a {
+    text-decoration: none; /* リンクの下線を消す */
+    color: var(--text-color);
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
 
-    .menu-table tr {
-      border-bottom: 1px dotted #ccc;
-    }
+/* メインビジュアル：全幅の背景画像と中央の文字 */
+.hero {
+    height: 60vh; /* 画面の高さの60%に設定 */
+    /* 背景画像に暗めのグラデーションを重ねて、上に乗る白文字を読みやすくする */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1500') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
 
-    .menu-table td {
-      padding: 15px 10px;
-    }
+/* セクション共通の見出しデザイン */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-    /* 追加・修正するスタイル */
-    .menu-table caption {
-      text-align: left;
-      font-size: 14px;
-      background-color: #eff2f0;
-      /* セージグリーン */
-      padding: 5px 15px;
-      margin-top: 30px;
-      display: inline-block;
-      font-weight: bold;
-      color: #3e3a39;
-      border-radius: 2px;
-      caption-side: top;
-      /* 表の上に配置 */
-    }
+.section-title span {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    display: block; /* 英語見出しを独立した行にする */
+}
 
-    .menu-name {
-      font-weight: bold;
-    }
+/* メニュー：グリッドレイアウト */
+.bg-light { background-color: var(--bg-color); }
 
-    .menu-price {
-      text-align: right;
-      color: #8c7662;
-    }
+.menu-grid {
+    display: grid;
+    /* 画面幅に合わせて、最小300pxの幅で自動的にカラム数を調整（レスポンシブ） */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
 
-    .category-title {
-      background-color: #eff2f0;
-      /* セージグリーン系の淡い色 */
-      padding: 5px 15px;
-      margin-top: 30px;
-      display: inline-block;
-      font-size: 14px;
-      border-radius: 2px;
-    }
+.menu-category h3 {
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
 
-    /* フッター */
-    footer {
-      background-color: #3e3a39;
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
-      font-size: 13px;
-    }
+/* テーブル（メニュー表）のデザイン */
+table {
+    width: 100%;
+    border-collapse: collapse; /* セル間の隙間をなくす */
+}
 
-    @media (max-width: 600px) {
-      .hero {
-        height: 300px;
-      }
+td {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc; /* メニュー間の仕切りを点線に */
+}
 
-      .hero-text {
-        padding: 20px;
-      }
-    }
+td:last-child {
+    text-align: right; /* 価格を右寄せに */
+    font-weight: bold;
+}
+
+/* インフォメーション：情報と地図の横並び */
+.info-content {
+    display: flex;
+    flex-wrap: wrap; /* 画面が狭くなったら折り返す */
+    gap: 40px;
+}
+
+.info-list, .map-dummy {
+    flex: 1;
+    min-width: 300px;
+}
+
+.map-dummy {
+    height: 300px;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+/* フッター */
+footer {
+    background: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.8rem;
+}
