@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- Googleからフォントを読み込む -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500&display=swap"
     rel="stylesheet">
 </head>
 
@@ -20,13 +21,23 @@
 
   <!-- ここからヘッダー（ロゴとメニュー） -->
   <header>
-    <div class="container">
+    <div class="container header-inner">
       <h1>Cafe Placeholder</h1>
-      <nav>
+
+      <!-- ハンバーガーボタン -->
+      <button class="nav-toggle" id="js-nav-toggle" aria-label="メニュー開閉">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- ナビゲーションメニュー -->
+      <nav class="nav" id="js-nav">
         <ul>
           <li><a href="#about">About</a></li>
+          <li><a href="#news">News</a></li>
           <li><a href="#menu">Menu</a></li>
-          <li><a href="#info">Info</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -58,8 +69,20 @@
       </div>
     </section>
 
-    <!-- メインビジュアルのすぐ下にお知らせを追加 -->
+    <!-- お店についての紹介セクション -->
     <!-- フェードイン対象のクラス「js-fade」を追加 -->
+    <section id="about" class="container js-fade">
+      <div class="section-title">
+        <span>About</span>
+        <h2>落ち着いた空間で、日常を忘れるひとときを。</h2>
+      </div>
+      <div class="about-text">
+        <p>ダミーテキストです。お店のコンセプトをここに書きます。</p>
+      </div>
+    </section>
+
+    <!-- お知らせを追加 -->
+    <!-- クラス「js-fade」を追加 -->
     <section id="news" class="container js-fade">
       <div class="section-title">
         <span>News</span>
@@ -84,18 +107,6 @@
           <span class="news-content">バレンタイン限定スイーツが登場！</span>
         </li>
       </ul>
-    </section>
-
-    <!-- お店についての紹介セクション -->
-    <!-- クラス「js-fade」を追加 -->
-    <section id="about" class="container js-fade">
-      <div class="section-title">
-        <span>About</span>
-        <h2>落ち着いた空間で、日常を忘れるひとときを。</h2>
-      </div>
-      <div class="about-text">
-        <p>ダミーテキストです。お店のコンセプトをここに書きます。</p>
-      </div>
     </section>
 
     <!-- メニュー表セクション -->

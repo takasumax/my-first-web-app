@@ -46,25 +46,24 @@ const nextSlide = () => {
 setInterval(nextSlide, 5000);
 
 
-/* === お問い合わせフォームの送信シミュレーション === */
-const contactForm = document.getElementById('cafe-contact-form');
-const thanksMessage = document.getElementById('form-thanks');
+/* === ハンバーガーメニューの開閉制御 === */
+const navToggle = document.getElementById('js-nav-toggle');
+const nav = document.getElementById('js-nav');
+const navLinks = document.querySelectorAll('.nav a');
 
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    // ページのリロードを防ぐ
-    e.preventDefault();
-    
-    // フォームを消して、お礼メッセージを表示
-    contactForm.style.opacity = '0';
-    setTimeout(() => {
-      contactForm.style.display = 'none';
-      thanksMessage.style.display = 'block';
-      // お礼メッセージをふわっと出す
-      thanksMessage.style.opacity = '1';
-    }, 400);
+// ボタンをクリックしたら開閉
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('is-active');
+  nav.classList.toggle('is-active');
+});
+
+// メニュー内のリンクをクリックしたら閉じる（画面遷移をスムーズにするため）
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navToggle.classList.remove('is-active');
+    nav.classList.remove('is-active');
   });
-}
+});
 
 
 /* === 営業時間の判定ロジック === */
@@ -94,3 +93,24 @@ function updateBusinessStatus() {
 
 // ページ読み込み時に実行
 window.addEventListener('load', updateBusinessStatus);
+
+
+/* === お問い合わせフォームの送信シミュレーション === */
+const contactForm = document.getElementById('cafe-contact-form');
+const thanksMessage = document.getElementById('form-thanks');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    // ページのリロードを防ぐ
+    e.preventDefault();
+    
+    // フォームを消して、お礼メッセージを表示
+    contactForm.style.opacity = '0';
+    setTimeout(() => {
+      contactForm.style.display = 'none';
+      thanksMessage.style.display = 'block';
+      // お礼メッセージをふわっと出す
+      thanksMessage.style.opacity = '1';
+    }, 400);
+  });
+}

@@ -3,10 +3,11 @@
    ========================================================================== */
 :root {
     /* 色を一括管理するための変数（修正が楽になります） */
-    --primary-color: #4B3832; /* メインカラー：深いブラウン（落ち着き） */
-    --accent-color: #828A70;  /* アクセントカラー：スモーキーグリーン（癒やし） */
-    --bg-color: #F5F5F0;      /* 背景用：少し黄みのある白（紙のような質感） */
-    --text-color: #333;       /* 本文：真っ黒を避けて視認性を向上 */
+    /* カフェらしい落ち着いた配色 */
+    --primary-color: #4b3832;   /* ダークブラウン（メイン） */
+    --accent-color: #8d7d77;    /* グレージュ（サブ） */
+    --bg-color: #fcfaf5;        /* 柔らかなアイボリー（背景） */
+    --text-color: #333333;      /* 文字色 */
 }
 
 /* ブラウザ固有の余白をリセットし、サイズ計算をシンプルにする */
@@ -18,14 +19,24 @@
 
 /* サイト全体の文字設定 */
 body {
-    font-family: 'Noto Sans JP', sans-serif; /* 基本はゴシック体 */
-    line-height: 1.8; /* 行間を広めにとって読みやすく */
+    background-color: var(--bg-color);
+    font-family: 'Noto Sans JP', sans-serif;
     color: var(--text-color);
+    line-height: 1.8;
 }
 
-/* 見出しには明朝体（Serif）を適用して高級感を出す */
-h1, h2, h3 {
+/* ロゴのフォントを優雅な洋書風に */
+header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    color: var(--primary-color);
+}
+
+/* 見出しを情緒ある明朝体に */
+h2, h3, .section-title h2 {
     font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
 }
 
 /* コンテンツを中央寄せにするための共通クラス */
@@ -468,4 +479,84 @@ footer {
 .news-list li.is-important .news-content::before {
     content: "⚠️"; /* アイコンを自動挿入 */
     margin-right: 5px;
+}
+
+/* ==========================================================================
+   ハンバーガーメニューのスタイル
+   ========================================================================== */
+
+/* ヘッダー内のレイアウト調整 */
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* --- PC版：ボタンを隠す --- */
+.nav-toggle {
+    display: none;
+}
+
+/* --- スマホ版（768px以下） --- */
+@media (max-width: 768px) {
+    /* ボタンの見た目 */
+    .nav-toggle {
+        display: block;
+        width: 30px;
+        height: 24px;
+        position: relative;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    /* 三本線の棒 */
+    .nav-toggle span {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: all 0.3s;
+    }
+
+    .nav-toggle span:nth-child(1) { top: 0; }
+    .nav-toggle span:nth-child(2) { top: 11px; }
+    .nav-toggle span:nth-child(3) { bottom: 0; }
+
+    /* メニューが開いている時の「×」アニメーション */
+    .nav-toggle.is-active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+    .nav-toggle.is-active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.is-active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+    /* メニュー本体の隠し方（ふわっと上から出す） */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 最初は画面の外に隠す */
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(252, 250, 245, 0.95); /* 背景色を少し透過 */
+        z-index: 90;
+        transition: right 0.5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* メニューが開いた時 */
+    .nav.is-active {
+        right: 0;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav ul li {
+        margin: 20px 0;
+    }
 }
